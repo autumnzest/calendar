@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app version="2.5"   
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"> 
+<welcome-file-list>
+<welcome-file>AdminLogin.jsp</welcome-file>
+</welcome-file-list> 
+  <servlet>  
+     <!-- 类名 -->  
+    <servlet-name>HelloServlet</servlet-name>  
+    <!-- 所在的包 -->  
+    <servlet-class>com.kame.test.HelloServlet</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>HelloServlet</servlet-name>  
+    <!-- 访问的网址 -->  
+    <url-pattern>/rili/HelloServlet</url-pattern>  
+    </servlet-mapping>  
+	
+	<!-- servlet errors -->
+	<servlet>
+	        <servlet-name>ErrorHandler</servlet-name>
+	        <servlet-class>com.kame.error.ErrorHandler</servlet-class>
+	</servlet>
+	<!-- servlet mappings -->
+	<servlet-mapping>
+	        <servlet-name>ErrorHandler</servlet-name>
+	        <url-pattern>/rili/ErrorHandler</url-pattern>
+	</servlet-mapping>
+	<error-page>
+	    <error-code>404</error-code>
+	    <location>/rili/ErrorHandler</location>
+	</error-page>
+	<error-page>
+	    <exception-type>java.lang.Throwable</exception-type >
+	    <location>/ErrorHandler</location>
+	</error-page>
+	
+	<!-- Database-->
+	<servlet>
+        <servlet-name>DatabaseAccess</servlet-name>
+        <servlet-class>com.kame.test.DatabaseAccess</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DatabaseAccess</servlet-name>
+        <url-pattern>/rili/DatabaseAccess</url-pattern>
+    </servlet-mapping>
+    
+    <!-- userlist-->
+	<servlet>
+        <servlet-name>UserSelect</servlet-name>
+        <servlet-class>com.kame.admin.UserSelect</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserSelect</servlet-name>
+        <url-pattern>/rili/UserSelect</url-pattern>
+    </servlet-mapping>
+    
+    <!-- admin-->
+	<servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>com.kame.admin.AdminLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/rili/AdminLogin</url-pattern>
+    </servlet-mapping>
+    <!-- admin-->
+   <servlet>
+    <servlet-name>login</servlet-name>
+    <servlet-class>com.kame.test.login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>login</servlet-name>
+    <url-pattern>/rili/login</url-pattern>
+  </servlet-mapping>
+</web-app>
